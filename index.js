@@ -16,12 +16,8 @@ MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true })
   db = client.db('apps_db');
   appsCollection = db.collection('apps');
   appsRouter = createRouter(appsCollection);
-  app.use('/api', appsRouter);
+  app.use('/athena', appsRouter);
 })
   app.listen(5051, function(){
     console.log(`app listening on port ${this.address().port}`);
 })
-
-app.post('/wikiData', wikiCall);
-
-
