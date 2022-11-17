@@ -1,7 +1,7 @@
 import express from 'express';
 import { ObjectID  } from 'mongodb';
 import addNewUnit from './addNewUnit.js';
-import { db } from '../server.js';
+import { db } from '../index.js';
 import fetch from 'node-fetch';
 
 
