@@ -3,11 +3,11 @@ db.dropDatabase();
 
 db.apps.insertMany([
     {
-        name: "Optimo",
-        type: "App",
+        name: "optimo",
+        type: "app",
         gitHubRepo: "someLink.github.com",
         briefDescr: "this is the optimo app, the best app in the world",
-        depResposible: ["DPub"],
+        depResponsible: ["DPub"],
         facing: {
           user: true,
           audience: false,
@@ -30,7 +30,15 @@ db.apps.insertMany([
             link: "https://someLink.com",
             linkSource: "Confluence",
             linkCreationDate: "someDate",
-            isLinkUpToDate: true
+            isLinkUpToDate: true,
+            // flags {
+            //   isLinkUpToDate: true,
+            //   notes: [
+            //  {
+            //   text: "some coments about the document and if it is up to date",
+            //   user: "someUserIdString"
+            //  }]
+            // }
           },
           {
             title: "Some Doc2",
