@@ -75,8 +75,8 @@ const createRouter = function (appsCollection) {
     });
   
     router.post('/', (req, res) => {
-      const newApp = mockAppTest;
-      // const newData = req.body;
+      // const newApp = mockAppTest;
+      const newData = req.body;
       appsCollection
       .insertOne(newApp)
       .then((result) => {
@@ -104,38 +104,24 @@ const createRouter = function (appsCollection) {
       });
     });
   
-  //   router.put('/:id', (req, res) => {
-  //     const id = req.params.id;
-  //     const updatedData = req.body;
-  //     appsCollection
-  //     .updateOne(
-  //       { _id: ObjectID(id)},
-  //       { $set: updatedData }
-  //     )
-  //     .then((result) => {
-  //       res.json(result)
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //       res.status(500);
-  //       res.json({ status: 500, error: err });
-  //     });
-  //   });
-
-  //   router.post('/addNewBlockOfEveryType', async(req, res) => {
-  //     let adding = await addNewUnit(req);
-  //     addingAllNewThings(adding, eventsCollection, unitsCollection, artifactsCollection)
-  //     //1. A logic which will populate the event's connection with the connection id instead of name
-  //     //(do I need to have instead an object with both id and title)
-  //       //looping over events to find by name
-  //       //when find return the id
-  //       //replace the name with id within the connection
-  //     //2. a logic which populates the eventsIncluded array by getting data from the events DB
-  //     //(what happens if a unit is being edited instead of added?)
-  //     .then((result) => {
-  //       res.json(result)
-  //     })
-  // })
+    router.put('/:id', (req, res) => {
+      const id = req.params.id;
+      const updatedData = req.body;
+      // const updatedData = mockAppTest;
+      appsCollection
+      .updateOne(
+        { _id: ObjectID(id)},
+        { $set: updatedData }
+      )
+      .then((result) => {
+        res.json(result)
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500);
+        res.json({ status: 500, error: err });
+      });
+    });
   
     return router;
   
