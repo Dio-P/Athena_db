@@ -1,4 +1,4 @@
-use appsDb
+use apps_db
 db.dropDatabase();
 
 db.apps.insertMany([
