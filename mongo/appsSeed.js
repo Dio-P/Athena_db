@@ -7,6 +7,10 @@ db.apps.insertMany([
         type: "App",
         briefDescr: "this is the optimo app, the best app in the world",
         depResposible: ["DPub"],
+        facing: {
+          user: true,
+          audience: false,
+        },
         connection: [
           {
           name: "Things-api",
