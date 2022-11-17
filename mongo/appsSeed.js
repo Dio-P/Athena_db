@@ -5,6 +5,7 @@ db.apps.insertMany([
     {
         name: "Optimo",
         type: "App",
+        gitHubRepo: "someLink.github.com",
         briefDescr: "this is the optimo app, the best app in the world",
         depResposible: ["DPub"],
         facing: {
