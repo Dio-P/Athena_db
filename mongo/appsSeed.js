@@ -57,15 +57,15 @@ db.apps.insertMany(
           partConsenring: "some part",
           flags: {
             isLinkUpToDate: true,
-            requestAction: [
-              {
-                date: "some date",
-                userRequesting: "userId",
-                typeOfAction: "some action type",
-                comments: "some coments",
-                userRequested: "userId"
-              }
-            ]
+            // requestAction: [
+            //   {
+            //     date: "some date",
+            //     userRequesting: "userId",
+            //     typeOfAction: "some action type",
+            //     comments: "some coments",
+            //     userRequested: "userId"
+            //   }
+            // ]
           }
         },
         {
@@ -77,15 +77,15 @@ db.apps.insertMany(
           partConsenring: "some part",
           flags: {
             isLinkUpToDate: true,
-            requestAction: [
-              {
-                date: "some date",
-                userRequesting: "userId",
-                typeOfAction: "some action type",
-                comments: "some coments",
-                userRequested: "userId"
-              }
-            ]
+            // requestAction: [
+            //   {
+            //     date: "some date",
+            //     userRequesting: "userId",
+            //     typeOfAction: "some action type",
+            //     comments: "some coments",
+            //     userRequested: "userId"
+            //   }
+            // ]
           }
         }
       ]
