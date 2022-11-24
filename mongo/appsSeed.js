@@ -15,8 +15,8 @@ db.apps.insertMany(
         audience: false,
       },
       foldersToDisplay: [
-        {folder1: "client"},
-        {folder2: "server"},
+        { 1: "client"},
+        { 2: "server"},
       ],
       includesParts: [
         {
