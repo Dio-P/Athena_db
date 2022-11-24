@@ -51,10 +51,10 @@ db.apps.insertMany(
         {
           title: "Some Doc1",
           url: "https://someLink.com",
-          linkSource: "Confluence",
-          linkCreationDate: "someDate",
-          folderToDisplay: "folder1",
-          partConsenring: "some part",
+          source: "Confluence",
+          creationDate: "someDate",
+          folderToBeDisplayedIn: "folder1",
+          concerningParts: ["some part"],
           flags: {
             isLinkUpToDate: true,
             // requestAction: [
@@ -71,10 +71,10 @@ db.apps.insertMany(
         {
           title: "Some Doc2",
           url: "https://someLink.com",
-          linkSource: "Confluence",
-          linkCreationDate: "someDate",
-          folderToDisplay: "folder1",
-          partConsenring: "some part",
+          source: "Confluence",
+          creationDate: "someDate",
+          folderToBeDisplayedIn: "folder1",
+          concerningParts: ["some part"],
           flags: {
             isLinkUpToDate: true,
             // requestAction: [
