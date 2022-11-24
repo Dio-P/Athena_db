@@ -15,14 +15,22 @@ db.apps.insertMany(
         audience: false,
       },
       foldersToDisplay: [
+        { 0: "general documentation"},
         { 1: "client"},
         { 2: "server"},
       ],
       includesParts: [
         {
+          name: "general documentation",
+          type: "documentation",
+          RepoLink: ["www.someGitHubLink.com"],
+          folderToBeDisplayedIn: "0",
+        },
+        {
           name: "published postgres",
           type: "data base",
           RepoLink: ["www.someGitHubLink.com"],
+          folderToBeDisplayedIn: "1",
           // RelevantConnections: {
           //   technologiesUsed: [
           //     "dbThingId1",
@@ -53,7 +61,6 @@ db.apps.insertMany(
           url: "https://someLink.com",
           source: "Confluence",
           creationDate: "someDate",
-          folderToBeDisplayedIn: "folder1",
           concerningParts: ["some part"],
           flags: {
             isLinkUpToDate: true,
@@ -73,7 +80,6 @@ db.apps.insertMany(
           url: "https://someLink.com",
           source: "Confluence",
           creationDate: "someDate",
-          folderToBeDisplayedIn: "folder1",
           concerningParts: ["some part"],
           flags: {
             isLinkUpToDate: true,
