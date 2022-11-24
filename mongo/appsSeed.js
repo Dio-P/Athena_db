@@ -22,12 +22,14 @@ db.apps.insertMany(
       includesParts: [
         {
           name: "general documentation",
+          partId: "somePartId1",
           type: "documentation",
           RepoLink: ["www.someGitHubLink.com"],
           folderToBeDisplayedIn: "0",
         },
         {
           name: "published postgres",
+          partId: "somePartId2",
           type: "data base",
           RepoLink: ["www.someGitHubLink.com"],
           folderToBeDisplayedIn: "1",
@@ -61,7 +63,7 @@ db.apps.insertMany(
           url: "https://someLink.com",
           source: "Confluence",
           creationDate: "someDate",
-          concerningParts: ["some part"],
+          concerningPart: ["some part"],
           flags: {
             isLinkUpToDate: true,
             // requestAction: [
@@ -80,7 +82,7 @@ db.apps.insertMany(
           url: "https://someLink.com",
           source: "Confluence",
           creationDate: "someDate",
-          concerningParts: ["some part"],
+          concerningParts: ["some part id"],
           flags: {
             isLinkUpToDate: true,
             // requestAction: [
