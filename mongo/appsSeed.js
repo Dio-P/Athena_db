@@ -63,7 +63,7 @@ db.apps.insertMany(
           url: "https://someLink.com",
           source: "Confluence",
           creationDate: "someDate",
-          concerningPart: ["some part"],
+          concerningPart: ["some part id"],
           flags: {
             isLinkUpToDate: true,
             // requestAction: [
