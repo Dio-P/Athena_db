@@ -14,11 +14,11 @@ db.apps.insertMany(
         user: true,
         audience: false,
       },
-      foldersToDisplay: [
-        { 0: "general documentation"},
-        { 1: "client"},
-        { 2: "server"},
-      ],
+      foldersToDisplay: {
+         0: "general documentation",
+         1: "client",
+         2: "server",
+      },
       includesParts: [
         {
           name: "general documentation",
