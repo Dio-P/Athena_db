@@ -15,9 +15,9 @@ db.apps.insertMany(
         audience: false,
       },
       foldersToDisplay: {
-         0: "general documentation",
-         1: "client",
-         2: "server",
+         0: { title : "general documentation" },
+         1: { title : "client" },
+         2: { title : "server" },
       },
       includesParts: [
         {
