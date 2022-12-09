@@ -19,7 +19,7 @@ db.apps.insertMany(
          1: { title : "client" },
          2: { title : "server" },
       },
-      includesParts: [
+      parts: [
         {
           name: "general documentation",
           partId: "somePartId1",
