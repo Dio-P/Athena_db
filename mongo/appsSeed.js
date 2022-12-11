@@ -22,14 +22,14 @@ db.apps.insertMany(
       parts: [
         {
           name: "general documentation",
-          partId: "somePartId1",
+          id: "somePartId1",
           type: "documentation",
           ghRepo: "www.someGitHubLink.com",
           folderToBeDisplayedIn: "0",
         },
         {
           name: "published postgres",
-          partId: "somePartId2",
+          id: "somePartId2",
           type: "data base",
           ghRepo: "www.someGitHubLink.com",
           folderToBeDisplayedIn: "1",
