@@ -23,15 +23,15 @@ db.apps.insertMany(
         {
           name: "general documentation",
           id: "somePartId1",
-          type: "documentation",
           ghRepo: "www.someGitHubLink.com",
+          type: "documentation",
           folderToBeDisplayedIn: "0",
         },
         {
           name: "published postgres",
           id: "somePartId2",
-          type: "data base",
           ghRepo: "www.someGitHubLink.com",
+          type: "data base",
           folderToBeDisplayedIn: "1",
           // RelevantConnections: {
           //   technologiesUsed: [
