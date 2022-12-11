@@ -62,7 +62,7 @@ db.apps.insertMany(
           title: "Some Doc1",
           url: "https://someLink.com",
           source: "Confluence",
-          creationDate: "someDate",
+          lastModified: "someDate",
           concerningPart: ["some part id"],
           flags: {
             isLinkUpToDate: true,
@@ -81,7 +81,7 @@ db.apps.insertMany(
           title: "Some Doc2",
           url: "https://someLink.com",
           source: "Confluence",
-          creationDate: "someDate",
+          lastModified: "someDate",
           concerningParts: ["some part id"],
           flags: {
             isLinkUpToDate: true,
