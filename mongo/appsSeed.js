@@ -73,7 +73,7 @@ db.apps.insertMany(
           id: "someDocId",
           source: "Confluence",
           lastModified: "someDate",
-          concerningPart: ["some part id"],
+          concerningParts: ["some part id"],
           flags: {
             isLinkUpToDate: true,
             // requestAction: [
