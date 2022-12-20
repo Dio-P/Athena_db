@@ -70,6 +70,7 @@ db.apps.insertMany(
         {
           title: "Some Doc1",
           url: "https://someLink.com",
+          id: "someDocId",
           source: "Confluence",
           lastModified: "someDate",
           concerningPart: ["some part id"],
@@ -88,6 +89,7 @@ db.apps.insertMany(
         },
         {
           title: "Some Doc2",
+          id: "someDocId",
           url: "https://someLink.com",
           source: "Confluence",
           lastModified: "someDate",
