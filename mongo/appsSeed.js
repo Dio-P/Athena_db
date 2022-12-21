@@ -14,20 +14,20 @@ db.apps.insertMany(
         user: true,
         audience: false,
       },
-      folders: {
-         0: {
-           title: "general documentation",
-           id: 0
-          },
-         1: {
-          title: "client",
-          id: 1
+      folders: [
+        {
+          title: "general documentation",
+          id: 0
          },
-         2: {
-          title: "server",
-          id: 2
-         },
-      },
+        {
+         title: "client",
+         id: 1
+        },
+        {
+         title: "server",
+         id: 2
+        },
+       ],
       parts: [
         {
           name: "general documentation",
