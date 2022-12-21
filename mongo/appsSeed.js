@@ -95,17 +95,21 @@ db.apps.insertMany(
             source: "Confluence",
             lastModified: "someDate",
             concerningParts: ["some part id"],
-            flags: {
+            interactions: {
               isLinkUpToDate: true,
-              // requestAction: [
-              //   {
-              //     date: "some date",
-              //     userRequesting: "userId",
-              //     typeOfAction: "some action type",
-              //     comments: "some coments",
-              //     userRequested: "userId"
-              //   }
-              // ]
+              comments: [
+                {
+                  text: "some coment",
+                  type: "requestOrSimpleComment",
+                  user: "someUserId",
+                  date: "someDate",
+                  flag: ["add another flag", "add another flag"],
+                  openRequest: {
+                    type: "type of request",
+                    requestFrom: "otherUserId"
+                  }
+                }
+              ]
             }
           }
         ]
