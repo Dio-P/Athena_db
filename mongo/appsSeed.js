@@ -66,48 +66,52 @@ db.apps.insertMany(
           typeOf: "resievesFrom"
         }
       ],
-      docs: [
-        {
-          title: "Some Doc1",
-          url: "https://someLink.com",
-          id: "someDocId",
-          source: "Confluence",
-          lastModified: "someDate",
-          concerningParts: ["some part id"],
-          flags: {
-            isLinkUpToDate: true,
-            // requestAction: [
-            //   {
-            //     date: "some date",
-            //     userRequesting: "userId",
-            //     typeOfAction: "some action type",
-            //     comments: "some coments",
-            //     userRequested: "userId"
-            //   }
-            // ]
+      properties: {
+        docs: [
+          {
+            title: "Some Doc1",
+            url: "https://someLink.com",
+            id: "someDocId",
+            source: "Confluence",
+            lastModified: "someDate",
+            concerningParts: ["some part id"],
+            flags: {
+              isLinkUpToDate: true,
+              // requestAction: [
+              //   {
+              //     date: "some date",
+              //     userRequesting: "userId",
+              //     typeOfAction: "some action type",
+              //     comments: "some coments",
+              //     userRequested: "userId"
+              //   }
+              // ]
+            }
+          },
+          {
+            title: "Some Doc2",
+            id: "someDocId",
+            url: "https://someLink.com",
+            source: "Confluence",
+            lastModified: "someDate",
+            concerningParts: ["some part id"],
+            flags: {
+              isLinkUpToDate: true,
+              // requestAction: [
+              //   {
+              //     date: "some date",
+              //     userRequesting: "userId",
+              //     typeOfAction: "some action type",
+              //     comments: "some coments",
+              //     userRequested: "userId"
+              //   }
+              // ]
+            }
           }
-        },
-        {
-          title: "Some Doc2",
-          id: "someDocId",
-          url: "https://someLink.com",
-          source: "Confluence",
-          lastModified: "someDate",
-          concerningParts: ["some part id"],
-          flags: {
-            isLinkUpToDate: true,
-            // requestAction: [
-            //   {
-            //     date: "some date",
-            //     userRequesting: "userId",
-            //     typeOfAction: "some action type",
-            //     comments: "some coments",
-            //     userRequested: "userId"
-            //   }
-            // ]
-          }
-        }
-      ]
+        ]
+        // initials: [],
+        // technologies: []
+      }
     }
   ]
 )
