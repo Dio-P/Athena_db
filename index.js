@@ -48,4 +48,4 @@ MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true })
 })
 
 await new Promise((resolve) => httpServer.listen({ port: 5051 }, resolve));
-console.log(`🚀 Server ready at http://localhost:4000/graphql`);
+console.log(`🚀 Server ready at http://localhost:5051/graphql`);
