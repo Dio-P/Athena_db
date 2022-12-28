@@ -1,0 +1,7 @@
+function createResolvers() {
+  return {
+    Query: {
+
+    }
+  }
+}
