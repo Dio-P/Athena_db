@@ -15,19 +15,19 @@ db.apps.insertMany(
         audience: false,
       },
       folders: [
-         {
-           title: "general documentation",
-           id: 0
-          },
-         {
-          title: "client",
-          id: 1
+        {
+          title: "general documentation",
+          id: 0
          },
-         {
-          title: "server",
-          id: 2
-         },
-        ],
+        {
+         title: "client",
+         id: 1
+        },
+        {
+         title: "server",
+         id: 2
+        },
+       ],
       parts: [
         {
           name: "general documentation",
@@ -54,7 +54,7 @@ db.apps.insertMany(
           // }
         }
       ],
-      connection: [
+      connections: [
         {
         name: "Things-api",
         id: "someString",
@@ -66,46 +66,56 @@ db.apps.insertMany(
           typeOf: "resievesFrom"
         }
       ],
-      docs: [
-        {
-          title: "Some Doc1",
-          url: "https://someLink.com",
-          source: "Confluence",
-          lastModified: "someDate",
-          concerningPart: ["some part id"],
-          flags: {
-            isLinkUpToDate: true,
-            // requestAction: [
-            //   {
-            //     date: "some date",
-            //     userRequesting: "userId",
-            //     typeOfAction: "some action type",
-            //     comments: "some coments",
-            //     userRequested: "userId"
-            //   }
-            // ]
+      properties: {
+        docs: [
+          {
+            title: "Some Doc1",
+            url: "https://someLink.com",
+            id: "someDocId",
+            source: "Confluence",
+            lastModified: "someDate",
+            concerningParts: ["some part id"],
+            flags: {
+              isLinkUpToDate: true,
+              // requestAction: [
+              //   {
+              //     date: "some date",
+              //     userRequesting: "userId",
+              //     typeOfAction: "some action type",
+              //     comments: "some coments",
+              //     userRequested: "userId"
+              //   }
+              // ]
+            }
+          },
+          {
+            title: "Some Doc2",
+            id: "someDocId",
+            url: "https://someLink.com",
+            source: "Confluence",
+            lastModified: "someDate",
+            concerningParts: ["some part id"],
+            interactions: {
+              isLinkUpToDate: true,
+              comments: [
+                {
+                  text: "some coment",
+                  type: "requestOrSimpleComment",
+                  user: "someUserId",
+                  date: "someDate",
+                  flag: ["add another flag", "add another flag"],
+                  openRequest: {
+                    type: "type of request",
+                    requestFrom: "otherUserId"
+                  }
+                }
+              ]
+            }
           }
-        },
-        {
-          title: "Some Doc2",
-          url: "https://someLink.com",
-          source: "Confluence",
-          lastModified: "someDate",
-          concerningParts: ["some part id"],
-          flags: {
-            isLinkUpToDate: true,
-            // requestAction: [
-            //   {
-            //     date: "some date",
-            //     userRequesting: "userId",
-            //     typeOfAction: "some action type",
-            //     comments: "some coments",
-            //     userRequested: "userId"
-            //   }
-            // ]
-          }
-        }
-      ]
+        ]
+        // initials: [],
+        // technologies: []
+      }
     }
   ]
 )
