@@ -61,12 +61,13 @@ const typeDefs = gql `
   }
 
   type Query {
-
+    getAppsName(ids: [ID]!): [String]
+    getApp(ids: ID!): App
   }
 
-  type Mutations {
-    
-  }
+  # type Mutations {
+
+  # }
 `
 export default typeDefs;
 
