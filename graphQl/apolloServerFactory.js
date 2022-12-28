@@ -12,7 +12,7 @@ import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHt
 
 export const createApolloServer = (httpServer) => {
   const models = {
-    Apps: appsModel(appsCollection)
+    Apps: appsModel
   };
 
   return new ApolloServer({
@@ -20,6 +20,7 @@ export const createApolloServer = (httpServer) => {
     resolvers: createResolvers(models),
     // apolloPlayground: apolloPlaygroundSettings,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+    context: models
   })
 
 }

@@ -1,14 +1,14 @@
 import { appsCollection } from "../../index.js";
-const appsModel = (appsCollection) => {
+const appsModel = {
 
-  const getNamesById = (ids) => {
-    appsCollection
-      .find
-      // https://www.mongodb.com/docs/drivers/node/current/usage-examples/find/
-      // https://www.mongodb.com/docs/manual/reference/operator/query/
-  }
+  // const getNamesById = (ids) => {
+  //   appsCollection
+  //     .find
+  //     // https://www.mongodb.com/docs/drivers/node/current/usage-examples/find/
+  //     // https://www.mongodb.com/docs/manual/reference/operator/query/
+  // }
 
-  const getAppByName = (name) => {
+  getAppByName : (name) => {
     appsCollection
         .findOne({ name: name })
         .then((app) => {
