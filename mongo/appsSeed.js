@@ -54,7 +54,7 @@ db.apps.insertMany(
           // }
         }
       ],
-      connection: [
+      connections: [
         {
         name: "Things-api",
         id: "someString",
