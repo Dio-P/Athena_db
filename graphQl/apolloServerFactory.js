@@ -8,7 +8,7 @@ import { createResolvers } from './resolvers';
 
 export const createApolloServer = () => {
   const models = {
-
+    Apps: appsModel()
   };
 
   return new ApolloServer({

@@ -29,6 +29,7 @@ MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true })
   appsRouter = createRouter(appsCollection);
   // app.use('/athena', appsRouter);
   app.use('/athena', apolloServer);//attempt to link this
+  // how to pass appsCollection within apolloServer?
 })
   app.listen(5051, function(){
     console.log(`app listening on port ${this.address().port}`);
