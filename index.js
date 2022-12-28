@@ -1,6 +1,7 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import bodyParser from 'body-parser';
+import { createApolloServer } from './graphQl/apolloServerFactory.js';
 
 import express from 'express';
 const app = express();

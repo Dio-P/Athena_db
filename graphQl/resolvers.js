@@ -1,4 +1,4 @@
-function createResolvers() {
+export function createResolvers() {
   return {
     Query: {
 

@@ -1,5 +1,20 @@
 
+import { ApolloServer } from '@apollo/server';
+import typeDefs from './typeDef';
+import { createResolvers } from './resolvers';
 
-const createApolloServer = () => {
-  return 
+
+// const apolloPlaygroundSettings = nonProduction ? { settings: { 'request.credentials': 'same-origin' } } : false;
+
+export const createApolloServer = () => {
+  const models = {
+
+  };
+
+  return new ApolloServer({
+    typeDefs,
+    resolvers: createResolvers(models),
+    // apolloPlayground: apolloPlaygroundSettings,
+  })
+
 }
