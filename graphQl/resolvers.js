@@ -1,10 +1,11 @@
+
 export function createResolvers() {
   return {
     Query: {
-      getAppsName: (_, args, ctx) => ctx.models.Apps.getByIds(args),
+      getAppsName: (_, args, ctx) => ctx.models.Apps.getNamesById(args),
       // I need to pass the context if I am not 
       // and to writte the model
-      getApp: (_, args, ctx) => ctx.models.Apps.getByIds(args)
+      getAppByName: (_, args, ctx) => ctx.models.Apps.getAppByName(args)
     }
   }
 }
