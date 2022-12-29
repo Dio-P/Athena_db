@@ -64,7 +64,6 @@ const createRouter = function (appsCollection) {
       appsCollection
       .findOne({ name: name })
       .then((doc) => {
-        console.log("doc", doc);
         return res.json(doc);
       })
       .catch((err) => {

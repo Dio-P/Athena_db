@@ -45,10 +45,15 @@ export function AppsModel() {
       return app
     },
 
-    async getNamesDepApps(args){
-      const dbRes = await appsCollection.find({ teams: args.teams });
-      const app = dbRes.map((singleApp) => (toApp(singleApp).name));
-      return app
+    async getAppsByTeam(args){
+      // console.log("args", args);
+      const dbResRaw = await appsCollection.find({ teams: args.team });
+      console.log("dbResRaw", dbResRaw);
+      const dbRes = await dbResRaw.toArray();
+      console.log("dbRes2", dbRes);
+      const apps = await dbRes.map((singleApp) => (toApp(singleApp)));
+      // console.log("apps@@@@3", apps);
+      return apps
     },
   }
 }

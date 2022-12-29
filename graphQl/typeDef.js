@@ -64,7 +64,7 @@ const typeDefs = gql `
   type Query {
     getAppsName(ids: [ID!]!): [String]
     getAppByName(name: String!): App
-    getNamesDepApps(teams: [String!]!): [String]
+    getAppsByTeam(team: String!): [App]
   }
 
   # type Mutations {
