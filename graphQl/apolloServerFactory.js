@@ -3,7 +3,7 @@ import { ApolloServer } from '@apollo/server';
 import typeDefs from './typeDef.js';
 import { createResolvers } from './resolvers.js';
 import { appsCollection } from '../index.js';
-import appsModel from './models/appsModel.js';
+import AppsModel from './models/appsModel.js';
 import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHttpServer';
 
 
@@ -12,7 +12,7 @@ import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHt
 
 export const createApolloServer = (httpServer) => {
   const models = {
-    Apps: appsModel
+    Apps: AppsModel()
   };
 
   return new ApolloServer({
