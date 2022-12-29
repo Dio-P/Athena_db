@@ -7,7 +7,7 @@ export function createResolvers(models) {
       getAppsName: (_, args, ctx) => ctx.models.Apps.getNamesById(args),
       // I need to pass the context if I am not 
       // and to writte the model
-      getAppByName: (_, args, ctx) => {
+      getAppByName: async(_, args, ctx) => {
         // console.log("args", args.name);
         // console.log("appsCollection", appsCollection);
         // let app;
@@ -26,7 +26,9 @@ export function createResolvers(models) {
         console.log("ctx", ctx);
         console.log("args", args.name);
         console.log("models.Apps", models.Apps);
-        return models.Apps.getAppByName(args)
+        const res = await models.Apps.getAppByName(args);
+        console.log("res!!!@@", res);
+        return res
         ////////
       }
     }
