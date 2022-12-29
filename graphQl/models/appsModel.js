@@ -1,4 +1,34 @@
 import { appsCollection } from "../../index.js";
+const toApp = (app) => {
+  const {
+    _id,
+    name,
+    type,
+    gitHubRepo,
+    briefDescr,
+    depResponsible,
+    facing,
+    folders,
+    parts,
+    connections,
+    properties
+  } = app;
+
+  return {
+    id: _id,
+    name,
+    type,
+    gitHubRepo,
+    briefDescr,
+    depResponsible,
+    facing,
+    folders,
+    parts,
+    connections,
+    properties
+  }
+}
+
 export function AppsModel() {
   return {
 
@@ -15,7 +45,7 @@ export function AppsModel() {
           .findOne({ name: args.name })
           .then((app) => {
             console.log("app@Inside", app);
-            const appJ = JSON.stringify(app);
+            const appJ = toApp(app);
             console.log("appJ", appJ);
             return appJ
           })
