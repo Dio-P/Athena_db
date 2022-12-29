@@ -7,6 +7,7 @@ const typeDefs = gql `
 
   type App {
     # app_id to be checked
+    id: ID!
     name: String
     type: String
     gitHubRepo: String
