@@ -46,20 +46,12 @@ export function AppsModel() {
     },
 
     async getAppsByTeam(args){
-      // console.log("args", args);
       const dbResRaw = await appsCollection.find({ teams: args.team });
-      console.log("dbResRaw", dbResRaw);
       const dbRes = await dbResRaw.toArray();
-      console.log("dbRes2", dbRes);
       const apps = await dbRes.map((singleApp) => (toApp(singleApp)));
-      // console.log("apps@@@@3", apps);
       return apps
     },
   }
 }
 
 export default AppsModel
-
-// working:
-// make a find resolver for all the app names of a department
-
