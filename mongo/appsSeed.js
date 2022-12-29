@@ -9,7 +9,7 @@ db.apps.insertMany(
       type: "app",
       gitHubRepo: "someLink.github.com",
       briefDescr: "this is the optimo app, the best app in the world",
-      depResponsible: ["DPub"],
+      teams: ["DPub"],
       facing: {
         user: true,
         audience: false,

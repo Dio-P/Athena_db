@@ -39,13 +39,22 @@ export function AppsModel() {
     //     // https://www.mongodb.com/docs/manual/reference/operator/query/
     // }
   
-    async getAppByName (args){
-      const app = await appsCollection.findOne({ name: args.name });
-      const appJ = toApp(app);
-      return appJ
-    }
+    async getAppByName(args){
+      const dbRes = await appsCollection.findOne({ name: args.name });
+      const app = toApp(dbRes);
+      return app
+    },
+
+    async getNamesDepApps(args){
+      const dbRes = await appsCollection.find({ teams: args.teams });
+      const app = dbRes.map((singleApp) => (toApp(singleApp).name));
+      return app
+    },
   }
 }
 
 export default AppsModel
+
+// working:
+// make a find resolver for all the app names of a department
 
