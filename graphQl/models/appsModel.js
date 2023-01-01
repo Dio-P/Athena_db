@@ -1,4 +1,5 @@
 import { appsCollection } from "../../index.js";
+import { ObjectId } from "mongodb";
 const toApp = (app) => {
   const {
     _id,
@@ -40,7 +41,7 @@ export function AppsModel() {
     // }
   
     async getAppById(args){
-      const dbRes = await appsCollection.findOne({ id: args.id });
+      const dbRes = await appsCollection.findOne({ _id: ObjectId(args.id) });
       const app = toApp(dbRes);
       return app
     },
