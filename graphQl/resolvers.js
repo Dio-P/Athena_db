@@ -5,7 +5,9 @@ export function createResolvers(models) {
     Query: {
       // getAppsName: (_, args, ctx) => ctx.models.Apps.getNamesById(args),
       // getAppById: async(_, args, ctx) => await models.Apps.getAppById(args),
-      getAppByName: async(_, args, ctx) => await models.Apps.getAppByName(args),
+      getAppByName: async(_, args, ctx) => {
+        console.log("args", args);
+        return await models.Apps.getAppByName(args)},
       getAppsByTeam: async(_, args, ctx) => await models.Apps.getAppsByTeam(args),
 
     }
