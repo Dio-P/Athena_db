@@ -15,7 +15,7 @@ const toApp = (app) => {
     connections,
     properties
   } = app;
-
+  console.log("_id!!!!!!!!!!", _id);
   return {
     id: _id,//.toString(),
     name,
@@ -44,6 +44,15 @@ export function AppsModel() {
     async getAppById(args){
       console.log("args.id", args.id);
       const dbRes = await appsCollection.findOne({ _id: ObjectID(args.id) });
+      console.log("dbRes", dbRes);
+      const app = toApp(dbRes);
+      console.log("app", app);
+      return app
+    },
+
+    async getAppByName(args){
+      console.log("args.id", args);
+      const dbRes = await appsCollection.findOne({ name: args.name });
       console.log("dbRes", dbRes);
       const app = toApp(dbRes);
       console.log("app", app);

@@ -64,6 +64,7 @@ const typeDefs = gql `
   type Query {
     getAppsName(ids: [ID!]!): [String]
     getAppById(id: ID!): App
+    getAppByName(name: String!): App
     getAppsByTeam(team: String!): [App]
   }
 
