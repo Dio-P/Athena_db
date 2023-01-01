@@ -39,8 +39,8 @@ export function AppsModel() {
     //     // https://www.mongodb.com/docs/manual/reference/operator/query/
     // }
   
-    async getAppByName(args){
-      const dbRes = await appsCollection.findOne({ name: args.name });
+    async getAppById(args){
+      const dbRes = await appsCollection.findOne({ id: args.id });
       const app = toApp(dbRes);
       return app
     },
