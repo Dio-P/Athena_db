@@ -1,5 +1,6 @@
 import { appsCollection } from "../../index.js";
-import { ObjectId } from "mongodb";
+// import { ObjectId } from "mongodb";
+import { ObjectID } from "bson";
 const toApp = (app) => {
   const {
     _id,
@@ -16,7 +17,7 @@ const toApp = (app) => {
   } = app;
 
   return {
-    id: _id,
+    id: _id,//.toString(),
     name,
     type,
     gitHubRepo,
@@ -41,8 +42,11 @@ export function AppsModel() {
     // }
   
     async getAppById(args){
-      const dbRes = await appsCollection.findOne({ _id: ObjectId(args.id) });
+      console.log("args.id", args.id);
+      const dbRes = await appsCollection.findOne({ _id: ObjectID(args.id) });
+      console.log("dbRes", dbRes);
       const app = toApp(dbRes);
+      console.log("app", app);
       return app
     },
 
