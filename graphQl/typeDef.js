@@ -35,7 +35,7 @@ const typeDefs = gql `
     id: String
     ghRepo: String
     type: String
-    folderToBeDisplayedIn: [ID]
+    folderToBeDisplayedIn: String!
   }
 
   # type Connection {

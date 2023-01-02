@@ -8,22 +8,22 @@ const toApp = (app) => {
     type,
     gitHubRepo,
     briefDescr,
-    depResponsible,
-    facing,
+    teams,
+    // facing,
     folders,
     parts,
     connections,
     properties
   } = app;
-  console.log("_id!!!!!!!!!!", _id);
+  // console.log("_id!!!!!!!!!!", _id, app);
   return {
     id: _id,//.toString(),
     name,
     type,
     gitHubRepo,
     briefDescr,
-    depResponsible,
-    facing,
+    teams,
+    // facing,
     folders,
     parts,
     connections,
