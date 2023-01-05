@@ -35,6 +35,7 @@ db.apps.insertMany(
           ghRepo: "www.someGitHubLink.com",
           type: "documentation",
           folderToBeDisplayedIn: "0",
+          // appParent: "optimo",
         },
         {
           name: "published postgres",
@@ -42,6 +43,7 @@ db.apps.insertMany(
           ghRepo: "www.someGitHubLink.com",
           type: "data base",
           folderToBeDisplayedIn: "1",
+          // appParent: "optimo",
           // RelevantConnections: {
           //   technologiesUsed: [
           //     "dbThingId1",
