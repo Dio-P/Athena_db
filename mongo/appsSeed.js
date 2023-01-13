@@ -76,7 +76,7 @@ db.apps.insertMany(
             id: "someDocId",
             source: "Confluence",
             lastModified: "someDate",
-            concerningParts: ["some part id"],
+            concerningParts: ["somePartId1", "somePartId2"],
             flags: {
               isLinkUpToDate: true,
               // requestAction: [
@@ -96,7 +96,7 @@ db.apps.insertMany(
             url: "https://someLink.com",
             source: "Confluence",
             lastModified: "someDate",
-            concerningParts: ["some part id"],
+            concerningParts: ["somePartId1", "somePartId2"],
             interactions: {
               isLinkUpToDate: true,
               comments: [
