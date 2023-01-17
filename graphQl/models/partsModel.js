@@ -9,7 +9,7 @@ const toPart = (part) => {
     type,
     folderToBeDisplayedIn,
     appParent,
-  } = app;
+  } = part;
   // console.log("_id!!!!!!!!!!", _id, app);
   return {
     name,
@@ -27,11 +27,12 @@ export function PartsModel() {
     async getPartByIdAndAppId(args){
       console.log("args.partId", args.partId);
       console.log("args.appId", args.appId);
-      const dbRes = await appsCollection.findOne({ _id: ObjectID(args.id) });
+      const dbRes = await appsCollection.findOne({ _id: ObjectID(args.appId), parts: { id: args.partId} });
+      // am I messing up the ids? (local and db- here I need the db)
       console.log("dbRes", dbRes);
       const part = toPart(dbRes);
       console.log("part", part);
-      return app
+      return part
     },
 
     // async getAppByName(args){
