@@ -9,6 +9,7 @@ export function createResolvers(models) {
         console.log("args", args);
         return await models.Apps.getAppByName(args)},
       getAppsByTeam: async(_, args, ctx) => await models.Apps.getAppsByTeam(args),
+      getPartByIdAndAppId: async(_, args, ctx) => await models.Parts.getPartByIdAndAppId(args)
 
     }
   }
