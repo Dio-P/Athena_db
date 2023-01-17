@@ -1,23 +1,13 @@
 import { appsCollection } from "../../index.js";
 // import { ObjectId } from "mongodb";
 import { ObjectID } from "bson";
-const toPart = (part) => {
+const toPart = (app) => {
   const {
-    name,
-    id,
-    ghRepo,
-    type,
-    folderToBeDisplayedIn,
-    appParent,
-  } = part;
+    parts
+  } = app;
   // console.log("_id!!!!!!!!!!", _id, app);
   return {
-    name,
-    id,
-    ghRepo,
-    type,
-    folderToBeDisplayedIn,
-    appParent,
+    parts
   }
 }
 
@@ -27,12 +17,12 @@ export function PartsModel() {
     async getPartByIdAndAppId(args){
       console.log("args.partId", args.partId);
       console.log("args.appId", args.appId);
-      const dbRes = await appsCollection.findOne({ _id: ObjectID(args.appId), parts: { id: args.partId} });
+      const dbRes = await appsCollection.findOne({ "parts.id": "somePartId1" }, {"parts.id": "somePartId1"});
       // am I messing up the ids? (local and db- here I need the db)
       console.log("dbRes", dbRes);
-      const part = toPart(dbRes);
-      console.log("part", part);
-      return part
+      const app = toPart(dbRes);
+      console.log("app", app);
+      return app
     },
 
     // async getAppByName(args){
