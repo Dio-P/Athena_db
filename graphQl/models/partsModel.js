@@ -17,7 +17,8 @@ export function PartsModel() {
     async getPartByIdAndAppId(args){
       console.log("args.partId", args.partId);
       console.log("args.appId", args.appId);
-      const dbRes = await appsCollection.findOne({ "parts.id": "somePartId1" }, {"parts.id": "somePartId1"});
+      // const dbRes = await appsCollection.findOne({ $getField: {"parts.id": "somePartId1"} });
+      const dbRes = await appsCollection.find({}, { parts: {$elemMatch: {"id": "somePartId1"} }}).toArray();
       // am I messing up the ids? (local and db- here I need the db)
       console.log("dbRes", dbRes);
       const app = toPart(dbRes);
