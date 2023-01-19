@@ -2,10 +2,10 @@ import { appsCollection } from "../../index.js";
 // import { ObjectId } from "mongodb";
 import { ObjectID } from "bson";
 const toPart = (app) => {
+  console.log("$unwind", app);
   const {
     parts
   } = app;
-  // console.log("_id!!!!!!!!!!", _id, app);
   return {
     parts
   }
@@ -17,11 +17,13 @@ export function PartsModel() {
     async getPartByIdAndAppId(args){
       console.log("args.partId", args.partId);
       console.log("args.appId", args.appId);
-      // const dbRes = await appsCollection.findOne({ $getField: {"parts.id": "somePartId1"} });
-      const dbRes = await appsCollection.find({}, { parts: {$elemMatch: {"id": "somePartId1"} }}).toArray();
+      const dbRes = await appsCollection.findOne({ "parts.id": "somePartId1" });
+      // const dbRes = await appsCollection.aggregate([{$unwind: "$parts" }]).toArray();
+      // const dbRes = await appsCollection.find({ "app.parts": {$elemMatch: {"app.parts.id": "somePartId1"} }}).toArray();
       // am I messing up the ids? (local and db- here I need the db)
       console.log("dbRes", dbRes);
-      const app = toPart(dbRes);
+      console.log("test@");
+      let app = toPart(dbRes);
       console.log("app", app);
       return app
     },
