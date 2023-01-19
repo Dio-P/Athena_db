@@ -1,15 +1,40 @@
 import { appsCollection } from "../../index.js";
 // import { ObjectId } from "mongodb";
 import { ObjectID } from "bson";
-const toPart = (app) => {
-  console.log("$unwind", app);
+const toPart = (app, partId) => {
   const {
-    parts
-  } = app;
+    name,
+    id,
+    ghRepo,
+    type,
+    folderToBeDisplayedIn,
+    appParent,
+  } = app.parts.find((part)=>(part.id===partId));
+
   return {
-    parts
+    name,
+    id,
+    ghRepo,
+    type,
+    folderToBeDisplayedIn,
+    appParent,
   }
+  
 }
+
+
+
+// const toPart = (app, partId) => {
+//   const {
+//     parts,
+//     properties
+//   } = app;
+//   console.log("$parts", parts);
+//   // return 
+//   return {
+//     parts: parts.find((part)=>(part.id===partId)),
+//     properties
+//   }
 
 export function PartsModel() {
   return {
@@ -23,7 +48,7 @@ export function PartsModel() {
       // am I messing up the ids? (local and db- here I need the db)
       console.log("dbRes", dbRes);
       console.log("test@");
-      let app = toPart(dbRes);
+      let app = toPart(dbRes, args.partId);
       console.log("app", app);
       return app
     },
