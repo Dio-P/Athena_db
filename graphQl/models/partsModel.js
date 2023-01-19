@@ -1,9 +1,9 @@
 import { appsCollection } from "../../index.js";
 // import { ObjectId } from "mongodb";
 import { ObjectID } from "bson";
-import { findPartsDocs } from "../../helpers/updatePartWithDocs.js";
+import { findPartsDocs } from "../../helpers/updateDbDocsLogic.js";
 
-const toPart = (app, partId) => {
+const toUpdatedPart = (app, partId) => {
 
   const {
     parts,
@@ -35,9 +35,9 @@ const toPart = (app, partId) => {
 export function PartsModel() {
   return {
   
-    async getPartByIdAndAppId({partId, appId}){
+    async getPartById({partId, appId}){
       const dbRes = await appsCollection.findOne({ "parts.id": partId });
-      let part = toPart(dbRes, partId);
+      let part = toUpdatedPart(dbRes, partId);
       return part;
     },
 

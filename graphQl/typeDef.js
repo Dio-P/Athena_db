@@ -28,6 +28,7 @@ const typeDefs = gql `
   type Folder {
     title: String
     id: Int
+    parts: [Part]
   }
 
   type Part {
@@ -66,9 +67,10 @@ const typeDefs = gql `
   type Query {
     getAppsName(ids: [ID!]!): [String]
     getAppById(id: ID!): App
+    getAppWithFoldersById(id: ID!): App
     getAppByName(name: String!): App
     getAppsByTeam(team: String!): [App]
-    getPartByIdAndAppId(partId: String!): Part
+    getPartById(partId: String!): Part
   }
 
   # type Mutations {

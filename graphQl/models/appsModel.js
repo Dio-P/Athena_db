@@ -1,33 +1,40 @@
 import { appsCollection } from "../../index.js";
 // import { ObjectId } from "mongodb";
 import { ObjectID } from "bson";
+import { updateWithFolders } from "../../helpers/updateDbDocsLogic.js";
 const toApp = (app) => {
   const {
     _id,
     name,
-    // type,
-    // gitHubRepo,
-    // briefDescr,
-    // teams,
-    // facing,
     folders,
     parts,
-    // connections,
     properties
   } = app;
-  // console.log("_id!!!!!!!!!!", _id, app);
+
   return {
-    id: _id,//.toString(),
+    id: _id,
     name,
-    // type,
-    // gitHubRepo,
-    // briefDescr,
-    // teams,
-    // facing,
     folders,
     parts,
-    // connections,
     properties
+  }
+}
+
+const toAppWithFolder = (app) => {
+  const {
+    _id,
+    name,
+    folders,
+    parts,
+    properties: {
+      docs
+    }
+  } = app;
+
+  return {
+    id: _id,
+    name,
+    folders: updateWithFolders(folders, parts, docs),
   }
 }
 
@@ -46,6 +53,15 @@ export function AppsModel() {
       const dbRes = await appsCollection.findOne({ _id: ObjectID(args.id) });
       console.log("dbRes", dbRes);
       const app = toApp(dbRes);
+      console.log("app", app);
+      return app
+    },
+
+    async getAppWithFoldersById(args){
+      console.log("args.id", args.id);
+      const dbRes = await appsCollection.findOne({ _id: ObjectID(args.id) });
+      console.log("dbRes", dbRes);
+      const app = toAppWithFolder(dbRes);
       console.log("app", app);
       return app
     },
