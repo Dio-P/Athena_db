@@ -1,7 +1,17 @@
 import { appsCollection } from "../../index.js";
 // import { ObjectId } from "mongodb";
 import { ObjectID } from "bson";
+import { findPartsDocs } from "../../helpers/updatePartWithDocs.js";
+
 const toPart = (app, partId) => {
+
+  const {
+    parts,
+    properties: {
+      docs
+    }
+  } = app;
+
   const {
     name,
     id,
@@ -9,7 +19,7 @@ const toPart = (app, partId) => {
     type,
     folderToBeDisplayedIn,
     appParent,
-  } = app.parts.find((part)=>(part.id===partId));
+  } = parts.find((part)=>(part.id===partId));
 
   return {
     name,
@@ -18,8 +28,8 @@ const toPart = (app, partId) => {
     type,
     folderToBeDisplayedIn,
     appParent,
+    docs: findPartsDocs(docs, id)
   }
-  
 }
 
 export function PartsModel() {
@@ -28,7 +38,7 @@ export function PartsModel() {
     async getPartByIdAndAppId({partId, appId}){
       const dbRes = await appsCollection.findOne({ "parts.id": partId });
       let part = toPart(dbRes, partId);
-      return part
+      return part;
     },
 
     // async getAppByName(args){

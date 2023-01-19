@@ -37,6 +37,7 @@ const typeDefs = gql `
     type: String
     folderToBeDisplayedIn: String!
     appParent: String,
+    docs: [Doc]
   }
 
   # type Connection {
