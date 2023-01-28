@@ -76,8 +76,10 @@ export function AppsModel() {
     },
 
     async getAppsByTeam(args){
+      console.log("args getAppByTeams", args);
       const dbResRaw = await appsCollection.find({ teams: args.team });
       const dbRes = await dbResRaw.toArray();
+      console.log("dbRes Teams", dbRes);
       const apps = await dbRes.map((singleApp) => (toApp(singleApp)));
       return apps
     },
