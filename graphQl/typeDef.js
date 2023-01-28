@@ -26,7 +26,7 @@ const typeDefs = gql `
   }
 
   type Folder {
-    title: String
+    name: String
     id: Int
     parts: [Part]
   }
@@ -51,7 +51,7 @@ const typeDefs = gql `
   }
 
   type Doc {
-    title: String
+    name: String
     url: String
     id: String
     source: String

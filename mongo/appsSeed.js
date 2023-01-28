@@ -16,15 +16,15 @@ db.apps.insertMany(
       },
       folders: [
         {
-          title: "general documentation",
+          name: "general documentation",
           id: 0
          },
         {
-         title: "client",
+         name: "client",
          id: 1
         },
         {
-         title: "server",
+         name: "server",
          id: 2
         },
        ],
@@ -71,7 +71,7 @@ db.apps.insertMany(
       properties: {
         docs: [
           {
-            title: "Some Doc1",
+            name: "Some Doc1",
             url: "https://someLink.com",
             id: "someDocId",
             source: "Confluence",
@@ -91,7 +91,7 @@ db.apps.insertMany(
             }
           },
           {
-            title: "Some Doc2",
+            name: "Some Doc2",
             id: "someDocId",
             url: "https://someLink.com",
             source: "Confluence",
