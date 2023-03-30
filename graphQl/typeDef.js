@@ -20,7 +20,27 @@ const typeDefs = gql `
     properties: Properties
   }
 
+  input AppInput {
+    # app_id to be checked
+    id: ID!
+    name: String
+    type: String
+    gitHubRepo: String
+    briefDescr: String
+    teams: [String]
+    # facing: Facing
+    folders: [FolderInput]
+    parts: [PartInput]
+    # connections: [Connection]
+    properties: PropertiesInput
+  }
+
   type Facing {
+    user: Boolean
+    audience: Boolean
+  }
+
+  input FacingInput {
     user: Boolean
     audience: Boolean
   }
@@ -29,6 +49,12 @@ const typeDefs = gql `
     name: String
     id: Int
     parts: [Part]
+  }
+
+  input FolderInput {
+    name: String
+    id: Int
+    parts: [PartInput]
   }
 
   type Part {
@@ -41,13 +67,26 @@ const typeDefs = gql `
     docs: [Doc]
   }
 
+  input PartInput {
+    name: String
+    id: String
+    ghRepo: String
+    type: String
+    folderToBeDisplayedIn: String!
+    appParent: String,
+    docs: [DocInput]
+  }
+
   # type Connection {
 
   # }
 
   type Properties {
     docs: [Doc]
+  }
 
+  input PropertiesInput {
+    docs: [DocInput]
   }
 
   type Doc {
@@ -60,7 +99,21 @@ const typeDefs = gql `
     flags: Flags
   }
 
+  input DocInput {
+    name: String
+    url: String
+    id: String
+    source: String
+    lastModified: String
+    concerningParts: [ID]
+    flags: FlagsInput
+  }
+
   type Flags {
+    isLinkUpToDate: Boolean
+  }
+
+  input FlagsInput {
     isLinkUpToDate: Boolean
   }
 
@@ -73,8 +126,8 @@ const typeDefs = gql `
     getPartById(partId: String!): Part
   }
 
-  type Mutations {
-    updateAppById(id: ID!, app: App!): App
+  type Mutation {
+    updateAppById(id: ID!, app: AppInput!): App
 
   }
 `

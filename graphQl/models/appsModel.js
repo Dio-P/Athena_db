@@ -63,48 +63,51 @@ export function AppsModel() {
     // }
   
     async getAppById(args){
-      console.log("args.id", args.id);
+      // console.log("args.id", args.id);
       const dbRes = await appsCollection.findOne({ _id: ObjectID(args.id) });
-      console.log("dbRes", dbRes);
+      // console.log("dbRes", dbRes);
       const app = toApp(dbRes);
-      console.log("app", app);
+      // console.log("app", app);
       return app
     },
 
     async getAppWithFoldersById(args){
-      console.log("args.id", args.id);
+      // console.log("args.id", args.id);
       const dbRes = await appsCollection.findOne({ _id: ObjectID(args.id) });
-      console.log("dbRes", dbRes);
+      // console.log("dbRes", dbRes);
       const app = toAppWithFolder(dbRes);
-      console.log("app", app);
+      // console.log("app", app);
       return app
     },
 
     async getAppByName(args){
-      console.log("args.id", args);
+      // console.log("args.id", args);
       const dbRes = await appsCollection.findOne({ name: args.name });
-      console.log("dbRes", dbRes);
+      // console.log("dbRes", dbRes);
       const app = toApp(dbRes);
-      console.log("app", app);
+      // console.log("app", app);
       return app
     },
 
     async getAppsByTeam(args){
-      console.log("args getAppByTeams", args);
+      // console.log("args getAppByTeams", args);
       const dbResRaw = await appsCollection.find({ teams: args.team });
       const dbRes = await dbResRaw.toArray();
-      console.log("dbRes Teams", dbRes);
+      // console.log("dbRes Teams", dbRes);
       const apps = await dbRes.map((singleApp) => (toApp(singleApp)));
       return apps
     },
 
     async updateAppById(args){
+      console.log("updateAppById");
       console.log("args.id", args.id);
-      const appToBeReplaced = await appsCollection.update({ _id: ObjectID(args.id) }, args.app);
-      console.log("appToBeReplaced", appToBeReplaced);
+      // console.log("args.app", args.app);
+      await appsCollection.updateOne({ _id: ObjectID(args.id) }, {$set:args.app});
       // const app = toApp(dbRes);
-      // console.log("app", app);
-      return app
+      // // console.log("app", app);
+      const appToBeReplaced = await appsCollection.findOne({ _id: ObjectID(args.id) });;
+      console.log("appToBeReplaced", appToBeReplaced);
+      return appToBeReplaced
     },
   }
 }
