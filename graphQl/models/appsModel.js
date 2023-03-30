@@ -6,6 +6,10 @@ const toApp = (app) => {
   const {
     _id,
     name,
+    type,
+    gitHubRepo,
+    briefDescr,
+    teams,
     folders,
     parts,
     properties
@@ -14,6 +18,10 @@ const toApp = (app) => {
   return {
     id: _id,
     name,
+    type,
+    gitHubRepo,
+    briefDescr,
+    teams,
     folders,
     parts,
     properties
@@ -24,6 +32,9 @@ const toAppWithFolder = (app) => {
   const {
     _id,
     name,
+    type,
+    gitHubRepo,
+    briefDescr,
     folders,
     parts,
     properties: {
@@ -34,6 +45,9 @@ const toAppWithFolder = (app) => {
   return {
     id: _id,
     name,
+    type,
+    gitHubRepo,
+    briefDescr,
     folders: updateWithFolders(folders, parts, docs),
   }
 }

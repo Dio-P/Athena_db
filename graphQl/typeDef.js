@@ -11,7 +11,7 @@ const typeDefs = gql `
     name: String
     type: String
     gitHubRepo: String
-    # briefDescr: String
+    briefDescr: String
     teams: [String]
     # facing: Facing
     folders: [Folder]
