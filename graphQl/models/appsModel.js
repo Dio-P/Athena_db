@@ -97,6 +97,15 @@ export function AppsModel() {
       const apps = await dbRes.map((singleApp) => (toApp(singleApp)));
       return apps
     },
+
+    async updateAppById(args){
+      console.log("args.id", args.id);
+      const appToBeReplaced = await appsCollection.update({ _id: ObjectID(args.id) }, args.app);
+      console.log("appToBeReplaced", appToBeReplaced);
+      // const app = toApp(dbRes);
+      // console.log("app", app);
+      return app
+    },
   }
 }
 

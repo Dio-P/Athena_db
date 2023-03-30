@@ -73,9 +73,10 @@ const typeDefs = gql `
     getPartById(partId: String!): Part
   }
 
-  # type Mutations {
+  type Mutations {
+    updateAppById(id: ID!, app: App!): App
 
-  # }
+  }
 `
 export default typeDefs;
 

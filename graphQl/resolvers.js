@@ -11,6 +11,9 @@ export function createResolvers(models) {
         return await models.Apps.getAppByName(args)},
       getAppsByTeam: async(_, args, ctx) => await models.Apps.getAppsByTeam(args),
       getPartById: async(_, args, ctx) => await models.Parts.getPartById(args)
+    },
+    Mutation: {
+      updateAppById: async(_, args, ctx) => await models.Apps.updateAppById(args),
 
     }
   }
