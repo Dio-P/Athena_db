@@ -128,7 +128,7 @@ const typeDefs = gql `
 
   type Mutation {
     updateAppById(id: ID!, app: AppInput!): App
-    updatePartById(id: ID!, updatedPart: PartInput!): Part
+    updatePartById(id: String!, updatedPart: PartInput!): App
 
   }
 `
