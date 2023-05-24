@@ -14,7 +14,7 @@ export function createResolvers(models) {
     },
     Mutation: {
       updateAppById: async(_, args, ctx) => await models.Apps.updateAppById(args),
-
+      updatePartById: async(_, args, ctx) => await models.Parts.updatePartById(args), 
     }
   }
 }

@@ -41,7 +41,14 @@ export function PartsModel() {
       return part;
     },
 
-  
+    async updatePartById({id, updatedPart}){
+      console.log("updatePartById");
+      console.log("partId", id);
+      await appsCollection.updateOne({ "parts.id": id }, {$set:updatedPart});
+      const partToBeReplaced = await appsCollection.findOne({ "parts.id": id });;
+      console.log("partToBeReplaced", partToBeReplaced);
+      return partToBeReplaced
+    },
 
     // async getAppByName(args){
     //   console.log("args.id", args);
