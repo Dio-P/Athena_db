@@ -3,23 +3,16 @@ import { appsCollection } from "../../index.js";
 import { ObjectID } from "bson";
 import { findPartsDocs } from "../../helpers/updateDbDocsLogic.js";
 
-const toUpdatedPart = (app, partId) => {
+const partWithDocs = (partWithoutDocs, docs) => {
 
   const {
-    parts,
-    properties: {
-      docs
-    }
-  } = app;
-
-  const {
-    name,
-    id,
-    ghRepo,
-    type,
-    folderToBeDisplayedIn,
-    appParent,
-  } = parts.find((part)=>(part.id===partId));
+      name,
+      id,
+      ghRepo,
+      type,
+      folderToBeDisplayedIn,
+      appParent,
+    } = partWithoutDocs;
 
   return {
     name,
@@ -30,11 +23,42 @@ const toUpdatedPart = (app, partId) => {
     appParent,
     docs: findPartsDocs(docs, id)
   }
+   
+}
+
+const toUpdatedPart = (app, partId) => {
+
+  const {
+    parts,
+    properties: {
+      docs
+    }
+  } = app;
+
+  // const {
+  //   name,
+  //   id,
+  //   ghRepo,
+  //   type,
+  //   folderToBeDisplayedIn,
+  //   appParent,
+  // } = parts.find((part)=>(part.id===partId));
+
+  const partWithoutDocs = parts.find((part)=>(part.id===partId));
+
+  return partWithDocs(partWithoutDocs, docs)
+  // return {
+  //   name,
+  //   id,
+  //   ghRepo,
+  //   type,
+  //   folderToBeDisplayedIn,
+  //   appParent,
+  //   docs: findPartsDocs(docs, id)
+  // }
 }
 
 const updateOnlyAPart = (app, partId, updatedPart) => {
-  console.log("initial app", app);
-  console.log("initial partId", partId);
   console.log("initial updatedPart", updatedPart);
   const {
     parts,
@@ -44,9 +68,8 @@ const updateOnlyAPart = (app, partId, updatedPart) => {
   } = app;
 
   let indexOfPartToUpdate = parts.indexOf(parts.find((part)=>(part.id===partId)));
-  parts.splice(indexOfPartToUpdate, 1, updatedPart)
-  console.log("app**", app);
-  // parts.push(updatedPart)
+  parts.splice(indexOfPartToUpdate, 1, partWithDocs(updatedPart, docs))
+
   return app;
 }
 
@@ -60,14 +83,10 @@ export function PartsModel() {
     },
 
     async updatePartById({id, updatedPart}){
-      console.log("updatePartById");
-      console.log("partId", id);
-      const preexistingApp = await appsCollection.findOne({ "parts.id": id });
-      console.log("preexistingApp@", preexistingApp);
-      await appsCollection.updateOne({ "parts.id": id }, {$set:updateOnlyAPart(preexistingApp, id, updatedPart)});
+      const beforeApp = await appsCollection.findOne({ "parts.id": id });
+      await appsCollection.updateOne({ "parts.id": id }, {$set:updateOnlyAPart(beforeApp, id, updatedPart)});
       const newApp = await appsCollection.findOne({ "parts.id": id });
 
-      console.log("newApp@", newApp);
       return newApp
     },
 
