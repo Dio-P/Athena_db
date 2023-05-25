@@ -9,37 +9,26 @@ const getOrUpdatePart = (app, partId, updatedPart) => {
 
   const {
     _id,
-    name,
-    type,
-    gitHubRepo,
-    briefDescr,
-    teams,
-    folders,
     parts,
-    properties
+    properties: {
+      docs
+    }
   } = app;
 
   const requestedPartWithoutDocs = parts.find((part)=>(part.id===partId));
 
   const updatePart = () => {
     let indexOfPartToUpdate = parts.indexOf(requestedPartWithoutDocs);
-    parts.splice(indexOfPartToUpdate, 1, partWithDocs(updatedPart, properties.docs));
+    parts.splice(indexOfPartToUpdate, 1, partWithDocs(updatedPart, docs));
     console.log("app*@!@*", app);
   
     return {
       id: _id,
-      name,
-      type,
-      gitHubRepo,
-      briefDescr,
-      teams,
-      folders,
-      parts,
-      properties
+      ...app
     }
   }
 
-  return updatedPart? updatePart() : partWithDocs(requestedPartWithoutDocs, properties.docs)
+  return updatedPart? updatePart() : partWithDocs(requestedPartWithoutDocs, docs)
 }
 
 export function PartsModel() {
