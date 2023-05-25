@@ -23,10 +23,7 @@ export const putPartIdToUpdatedFolder = (folderId, parts, docs) => {
 };
 
 export const findPartsDocs = (docs, partId) => {
-  console.log("@docs@", docs);
-  console.log("@partId@", partId);
   const appDocs = docs.filter((doc) => {
-    // console.log("doc.concerningParts£££", doc.concerningParts);
     return doc.concerningParts.includes(partId);
   });
   return appDocs;

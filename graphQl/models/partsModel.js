@@ -38,7 +38,7 @@ export function PartsModel() {
       const beforeApp = await appsCollection.findOne({ "parts.id": id });
       await appsCollection.updateOne({ "parts.id": id }, {$set: getOrUpdatePart(beforeApp, id, updatedPart)});
       const newApp = await appsCollection.findOne({ "parts.id": id });
-
+      console.log("newApp", newApp);
       return newApp
     },
 
