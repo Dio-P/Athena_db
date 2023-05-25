@@ -31,6 +31,29 @@ export const findPartsDocs = (docs, partId) => {
   });
   return appDocs;
 }
+
+export const partWithDocs = (partWithoutDocs, docs) => {
+
+  const {
+      name,
+      id,
+      ghRepo,
+      type,
+      folderToBeDisplayedIn,
+      appParent,
+    } = partWithoutDocs;
+
+  return {
+    name,
+    id,
+    ghRepo,
+    type,
+    folderToBeDisplayedIn,
+    appParent,
+    docs: findPartsDocs(docs, id)
+  }
+   
+}
 // const createUpdatedPartWithDocs = (docs, partId) => {
 //   return {
 //     ...part,
