@@ -5,7 +5,7 @@ import { partWithDocs } from "../../helpers/updateDbDocsLogic.js";
 
 
 
-const toUpdatedParts = (app, partId, updatedPart) => {
+const getOrUpdatePart = (app, partId, updatedPart) => {
 
   const {
     parts,
@@ -30,13 +30,13 @@ export function PartsModel() {
   
     async getPartById({partId, appId}){
       const dbRes = await appsCollection.findOne({ "parts.id": partId });
-      let part = toUpdatedParts(dbRes, partId);
+      let part = getOrUpdatePart(dbRes, partId);
       return part;
     },
 
     async updatePartById({id, updatedPart}){
       const beforeApp = await appsCollection.findOne({ "parts.id": id });
-      await appsCollection.updateOne({ "parts.id": id }, {$set: toUpdatedParts(beforeApp, id, updatedPart)});
+      await appsCollection.updateOne({ "parts.id": id }, {$set: getOrUpdatePart(beforeApp, id, updatedPart)});
       const newApp = await appsCollection.findOne({ "parts.id": id });
 
       return newApp
