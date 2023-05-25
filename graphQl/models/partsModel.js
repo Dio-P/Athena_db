@@ -8,21 +8,38 @@ import { partWithDocs } from "../../helpers/updateDbDocsLogic.js";
 const getOrUpdatePart = (app, partId, updatedPart) => {
 
   const {
+    _id,
+    name,
+    type,
+    gitHubRepo,
+    briefDescr,
+    teams,
+    folders,
     parts,
-    properties: {
-      docs
-    }
+    properties
   } = app;
 
   const requestedPartWithoutDocs = parts.find((part)=>(part.id===partId));
 
   const updatePart = () => {
     let indexOfPartToUpdate = parts.indexOf(requestedPartWithoutDocs);
-    parts.splice(indexOfPartToUpdate, 1, partWithDocs(updatedPart, docs));
-    return app;
+    parts.splice(indexOfPartToUpdate, 1, partWithDocs(updatedPart, properties.docs));
+    console.log("app*@!@*", app);
+  
+    return {
+      id: _id,
+      name,
+      type,
+      gitHubRepo,
+      briefDescr,
+      teams,
+      folders,
+      parts,
+      properties
+    }
   }
 
-  return updatedPart? updatePart() : partWithDocs(requestedPartWithoutDocs, docs)
+  return updatedPart? updatePart() : partWithDocs(requestedPartWithoutDocs, properties.docs)
 }
 
 export function PartsModel() {
