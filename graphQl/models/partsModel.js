@@ -43,9 +43,10 @@ const updateOnlyAPart = (app, partId, updatedPart) => {
     }
   } = app;
 
-  parts.find((part)=>(part.id===partId)).delete();
+  let indexOfPartToUpdate = parts.indexOf(parts.find((part)=>(part.id===partId)));
+  parts.splice(indexOfPartToUpdate, 1, updatedPart)
   console.log("app**", app);
-  parts.push(updatedPart)
+  // parts.push(updatedPart)
   return app;
 }
 
@@ -61,17 +62,13 @@ export function PartsModel() {
     async updatePartById({id, updatedPart}){
       console.log("updatePartById");
       console.log("partId", id);
-      // await appsCollection.updateOne({ "parts.id": id }, {$set:updatedPart});
       const preexistingApp = await appsCollection.findOne({ "parts.id": id });
       console.log("preexistingApp@", preexistingApp);
-      const updatePart = await appsCollection.updateOne({ "parts.id": id }, {$set:updateOnlyAPart(preexistingApp, id, updatedPart)});
-    //   const partToBeReplaced = db.collection.aggregate([
-    //     { $match: { "parts.id" : id } },
-    //     { $replaceWith: updatedPart }
-    //  ])
-      // const partToBeReplaced = await appsCollection.findOne({ "parts.id": id });;
-      console.log("updatePart@", updatePart);
-      return partToBeReplaced
+      await appsCollection.updateOne({ "parts.id": id }, {$set:updateOnlyAPart(preexistingApp, id, updatedPart)});
+      const newApp = await appsCollection.findOne({ "parts.id": id });
+
+      console.log("newApp@", newApp);
+      return newApp
     },
 
     // async getAppByName(args){
