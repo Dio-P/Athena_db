@@ -62,6 +62,16 @@ export function AppsModel() {
     //     // https://www.mongodb.com/docs/manual/reference/operator/query/
     // }
   
+    async addNewApp({newApp}){
+      // console.log("args.id", args.id);
+      appsCollection.insertOne(newApp);
+      const dbRes = await appsCollection.findOne({ name: newApp.name });
+      // console.log("dbRes", dbRes);
+      // const app = toApp(dbRes);
+      // console.log("app", app);
+      return dbRes
+    },
+
     async getAppById(args){
       // console.log("args.id", args.id);
       const dbRes = await appsCollection.findOne({ _id: ObjectID(args.id) });
