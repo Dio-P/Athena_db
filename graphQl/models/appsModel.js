@@ -115,6 +115,18 @@ export function AppsModel() {
       console.log("appToBeReplaced", appToBeReplaced);
       return appToBeReplaced
     },
+
+    // async deleteAppById(args){
+    //   console.log("updateAppById");
+    //   console.log("args.id", args.id);
+    //   // console.log("args.app", args.app);
+    //   await appsCollection.updateOne({ _id: ObjectID(args.id) }, {$set:args.app});
+    //   // const app = toApp(dbRes);
+    //   // // console.log("app", app);
+    //   const appToBeReplaced = await appsCollection.findOne({ _id: ObjectID(args.id) });;
+    //   console.log("appToBeReplaced", appToBeReplaced);
+    //   return appToBeReplaced
+    // },
   }
 }
 
