@@ -33,6 +33,12 @@ const getOrUpdatePart = (app, partId, updatedPart) => {
 
 export function PartsModel() {
   return {
+    async addNewPart({ newPart }) {
+      appsCollection.insertOne(newPart);
+      const dbRes = await appsCollection.findOne({ name: newPart.name });
+      return dbRes
+    },
+
     async getPartById({ partId, appId }) {
       const dbRes = await appsCollection.findOne({ "parts.id": partId });
       let part = getOrUpdatePart(dbRes, partId);

@@ -13,9 +13,10 @@ export function createResolvers(models) {
       getPartById: async(_, args, ctx) => await models.Parts.getPartById(args)
     },
     Mutation: {
-      updateAppById: async(_, args, ctx) => await models.Apps.updateAppById(args),
-      updatePartById: async(_, args, ctx) => await models.Parts.updatePartById(args), 
       addNewApp: async(_, args, ctx) => await models.Apps.addNewApp(args), 
+      updateAppById: async(_, args, ctx) => await models.Apps.updateAppById(args),
+      addNewPart: async(_, args, ctx) => await models.Parts.addNewPart(args), 
+      updatePartById: async(_, args, ctx) => await models.Parts.updatePartById(args), 
     }
   }
 }
