@@ -63,6 +63,7 @@ export function AppsModel() {
     // }
   
     async addNewApp({newApp}){
+      console.log("inside addNewApp");
       appsCollection.insertOne(newApp);
       const dbRes = await appsCollection.findOne({ name: newApp.name });
       return dbRes

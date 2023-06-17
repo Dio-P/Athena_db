@@ -130,7 +130,7 @@ const typeDefs = gql `
     addNewApp(newApp: AppInput!): App
     updateAppById(id: ID!, app: AppInput!): App
     deleteAppById(id: ID!): ID 
-    addNewPart(newPart: PartInput!): Part
+    addNewPart(appID: ID!, newPart: PartInput!, additionalFolders: [FolderInput]): Part
     updatePartById(id: String!, updatedPart: PartInput!): App
     deletePartById(id: String!): App
 

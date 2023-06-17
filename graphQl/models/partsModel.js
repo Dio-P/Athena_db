@@ -33,9 +33,14 @@ const getOrUpdatePart = (app, partId, updatedPart) => {
 
 export function PartsModel() {
   return {
-    async addNewPart({ newPart }) {
+    async addNewPart({ appID, newPart, additionalFolders }) {
+      console.log("inside AddNewPart", appID, newPart, additionalFolders);
       appsCollection.insertOne(newPart);
-      const dbRes = await appsCollection.findOne({ name: newPart.name });
+      const dbRes = await appsCollection.updateOne(
+        { _id: ObjectID(appID) },
+        { $push: { parts: newPart }, $set: {folders: additionalFolders} }
+        // need to update the folder too
+     )
       return dbRes
     },
 
