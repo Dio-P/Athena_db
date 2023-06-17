@@ -10,10 +10,10 @@ db.apps.insertMany(
       gitHubRepo: "someLink.github.com",
       briefDescr: "this is the optimo app, the best app in the world",
       teams: ["DPub"],
-      facing: {
-        user: true,
-        audience: false,
-      },
+      // facing: {
+      //   user: true,
+      //   audience: false,
+      // },
       folders: [
         {
           name: "general documentation",
@@ -68,6 +68,29 @@ db.apps.insertMany(
           typeOf: "resievesFrom"
         }
       ],
+      // Connections could be like folders and referenced in apps and parts
+      // the available connections need to be only apps (top level) to avoid confusion
+      // There could be a connection object within every part or app
+      // {
+      //   0: {
+      //   connectedAppId: "someConnectingAppOrPartCustomID",
+      //   connectedAppName: "some name"
+      // },
+      //   1: {
+      //   connectedAppId: "someConnectingAppOrPartCustomID",
+      //   connectedAppName: "some name"
+      // },
+      //   2: {
+      //   connectedAppId: "someConnectingAppOrPartCustomID",
+      //   connectedAppName: "some name"
+      // },,
+      // }
+      // The bellow could be within every part or app
+      // connectedWith: {
+      //   appConnectedWith: 0,
+      //   typeOfConnection: "reseives",
+      //   shortDescription: "It does this and transfers that"
+      // },
       properties: {
         docs: [
           {
