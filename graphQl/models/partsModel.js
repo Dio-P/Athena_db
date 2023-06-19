@@ -33,16 +33,17 @@ const getOrUpdatePart = (app, partId, updatedPart) => {
 
 export function PartsModel() {
   return {
-    async addNewPart({ appID, newPart, additionalFolders }) {
-      console.log("inside AddNewPart", appID, newPart, additionalFolders);
-      appsCollection.insertOne(newPart);
-      const dbRes = await appsCollection.updateOne(
-        { _id: ObjectID(appID) },
-        { $push: { parts: newPart }, $set: {folders: additionalFolders} }
-        // need to update the folder too
-     )
-      return dbRes
-    },
+    // the bellow has not been tested *****
+    // async addNewPart({ appID, newPart, additionalFolders }) {
+    //   console.log("inside AddNewPart", appID, newPart, additionalFolders);
+    //   appsCollection.insertOne(newPart);
+    //   const dbRes = await appsCollection.updateOne(
+    //     { _id: ObjectID(appID) },
+    //     { $push: { parts: newPart }, $set: {folders: additionalFolders} }
+    //     // need to update the folder too
+    //  )
+    //   return dbRes
+    // },
 
     async getPartById({ partId, appId }) {
       const dbRes = await appsCollection.findOne({ "parts.id": partId });
