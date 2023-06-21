@@ -83,13 +83,13 @@ export function PartsModel() {
     //   return newApp
     // },
 
-    // async deletePartById({ id }){
-    //   const beforeApp = await appsCollection.findOne({ "parts.id": id });
-    //   await appsCollection.updateOne({ "parts.id": id }, {$set: getOrUpdatePart(beforeApp, id, updatedPart)});
-    //   const newApp = await appsCollection.findOne({ "parts.id": id });
-    //   console.log("newApp", newApp);
-    //   return newApp
-    // },
+    async deletePartById({ id }){
+      console.log("inside delete part by id", id);
+      await appsCollection.deleteOne({ "parts.id": id });
+      const newApp = await appsCollection.findOne({ "parts.id": id });
+      console.log("newApp", newApp);
+      return newApp
+    },
   };
 }
 

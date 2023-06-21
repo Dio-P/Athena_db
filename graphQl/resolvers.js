@@ -17,6 +17,7 @@ export function createResolvers(models) {
       updateAppById: async(_, args, ctx) => await models.Apps.updateAppById(args),
       addNewPart: async(_, args, ctx) => await models.Parts.addNewPart(args), 
       updatePartById: async(_, args, ctx) => await models.Parts.updatePartById(args), 
+      deletePartById: async(_, args, ctx) => await models.Parts.deletePartById(args), 
     }
   }
 }
