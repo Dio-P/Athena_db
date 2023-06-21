@@ -5,11 +5,11 @@ db.dropDatabase();
 db.entities.insertMany(
   [
     {
-      // ..MVP..............................!!!!!!!!!!!!!\/\/\/\//
+      //** */ ..MVP..............................!!!!!!!!!!!!!\/\/\/\//
       name: "optimo",
       type: "app", //team //department //part //service //technology //product //doc
       mainLink: "someLink.github.com", //gitHub, //source if doc //could this also be slack chanel?
-      otherLinks: [], 
+      // otherLinks: [], //do we need that or is it gonna confuse things?
 
       properties: {
         docs: [],
@@ -24,10 +24,10 @@ db.entities.insertMany(
       briefDescription: "this is the optimo app, the best app in the world",
       teamsResponsible: ["DPub"], //automatically add the team of the parent.
       
-      // ..MVP..............................!!!!!!!!!!!!!/\/\/\/\\
-      // ..LaterFeatures..............................!!!!!!!!!!!!!\/\/\/\//
+      //** */ ..MVP..............................!!!!!!!!!!!!!/\/\/\/\\
+      //** */ ..LaterFeatures..............................!!!!!!!!!!!!!\/\/\/\//
 
-      // ..LaterFeatures..............................!!!!!!!!!!!!!/\/\/\/\\
+      //** */ ..LaterFeatures..............................!!!!!!!!!!!!!/\/\/\/\\
  
       connections: {
         audienceFacing: false,
