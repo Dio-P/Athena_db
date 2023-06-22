@@ -56,7 +56,12 @@ export function PartsModel() {
       updatedPart: { name, ghRepo, type, folderToBeDisplayedIn },
     }) {
       // const beforeApp = await appsCollection.findOne({ "parts.id": id });
-      console.log("inside update part by id", { name, ghRepo, type, folderToBeDisplayedIn });
+      console.log("inside update part by id", {
+        name,
+        ghRepo,
+        type,
+        folderToBeDisplayedIn,
+      });
       await appsCollection.updateOne(
         { "parts.id": id },
         {
@@ -83,12 +88,17 @@ export function PartsModel() {
     //   return newApp
     // },
 
-    async deletePartById({ id }){
-      console.log("inside delete part by id", id);
-      await appsCollection.deleteOne({ "parts.id": id });
-      const newApp = await appsCollection.findOne({ "parts.id": id });
+    async deletePartById({ id }) {
+      console.log("inside delete part by id", typeof id, id);
+      await appsCollection.updateOne(
+        { "parts.id": id },
+        { $pull: {parts: {"id": id}}}
+        );
+      const newApp = await appsCollection.findOne(
+        { "parts.id": id }
+      );
       console.log("newApp", newApp);
-      return newApp
+      return newApp;
     },
   };
 }
